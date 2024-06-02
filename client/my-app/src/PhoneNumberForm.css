@@ -1,0 +1,57 @@
+.M{
+    text-align: center;
+    padding: 1px 50px;
+    background-image: url(./images/N8.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 730px;
+    background-repeat: no-repeat;
+    display:block;
+    justify-content: center;
+  }
+ 
+ 
+ .M .P {
+    max-width: 350px;
+    margin: 190px auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .M .P1 {
+    margin-bottom: 20px;
+    
+  }
+  
+  
+ .M input[type="tel"] {
+    width: calc(100% - 0px);
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: #eee;
+    transition: .3s;
+  }
+  .M input:focus{
+    border: 2px solid green;
+   
+  }
+  
+ .M button[type="submit"] {
+    background-color: green;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+ .M button[type="submit"]:hover {
+    background-color: rgb(26, 221, 26);
+  }
+  

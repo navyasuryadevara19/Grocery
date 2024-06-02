@@ -1,0 +1,67 @@
+/* General styles */
+.H{
+    text-align: center;
+    padding: 0px 50px;
+    background-image: url(./images/N6.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 730px;
+    background-repeat: no-repeat;
+    display:flex;
+    justify-content: center;
+}
+.H .container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    
+  }
+  
+.H h1 {
+    text-align: center;
+    margin-top: 90px;
+  }
+  
+.H form {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 400px;
+  }
+
+.H label{
+    font-size: 14px;
+}
+  
+.H input[type="text"] {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+
+  .H input:focus{
+    border: 1px solid green;
+  }
+  
+ .H button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  
+ .H button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
