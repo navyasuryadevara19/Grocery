@@ -4,7 +4,7 @@ const path = require('path');
 const cors = require('cors');
 const Login = require('./Login');
 const Signup = require('./Signup');
-const Sendverification = require('./Sendverification');
+const Sendverification = require('./SendVerification');
 const verify = require('./Verify');
 const sendotp = require('./SendOtp');
 const verifyotp = require('./VerifyOtp');
@@ -12,6 +12,10 @@ const  SendEmailVerify = require('./SendEmailVerify');
 const verifyemailotp = require('./VerifyEmailOtp');
 const SendLoginVerify = require('./SendLoginVerify');
 const verifyloginotp = require('./VerifyLoginOtp');
+const resetemailverification = require('./SendPasswordverify');
+const passwordemailotp = require('./VerifyPasswordOtp');
+const resetpassword = require('./ResetPassword');
+
 
 
   app.use(express.static(path.join(__dirname, '/client/build')));
@@ -25,7 +29,6 @@ const verifyloginotp = require('./VerifyLoginOtp');
   }));
 
 
- 
  
   app.use('/Signin', Signup);
 
@@ -46,6 +49,13 @@ app.use('/verify-emailotp', verifyemailotp);
 app.use('/Send-LoginVerification', SendLoginVerify);
 
 app.use('/verify-loginotp', verifyloginotp);
+
+app.use('/Send-ResetEmailVerification', resetemailverification);
+
+app.use('/verify-passwordemailotp', passwordemailotp);
+
+app.use('/reset-password', resetpassword);
+
 
 // Catch-all handler for any requests that don't match any of the above routes
 app.get('*', (req, res) => {

@@ -6,7 +6,7 @@ import './EmailVerification.css';
 
 
 const LoginVerify = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [Email, setEmail] = useState('');
 
 

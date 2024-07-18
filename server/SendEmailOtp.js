@@ -1,7 +1,6 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
-const connection = require('./DBconnection');
 
 // Email verification
 

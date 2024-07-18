@@ -60,7 +60,7 @@ function Signup() {
         setConfirmPassword(sanitizedValue);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit =async (event) => {
       event.preventDefault();
       
 
@@ -69,6 +69,12 @@ const sanitizedEmail = DOMPurify.sanitize(Email);
 const sanitizedPassword = DOMPurify.sanitize(Password);
 const sanitizedConfirmPassword = DOMPurify.sanitize(ConfirmPassword);
 
+
+if (sanitizedPassword !== sanitizedConfirmPassword) {
+  window.alert('Password do not match.');
+  return;
+}
+
 if (validateEmail(Email) && checkPasswordStrength(Password)) {
 const salt = CryptoJS.lib.WordArray.random(16); // Generate a random 16-byte salt
 const saltedPassword = salt + sanitizedPassword; // Add the salt to the password
@@ -76,8 +82,8 @@ const encryptedPassword = CryptoJS.SHA256(saltedPassword).toString();
 
 const saltedConfirmPassword = salt + sanitizedConfirmPassword; // Add the salt to the password
 const encryptedConfirmPassword = CryptoJS.SHA256(saltedConfirmPassword).toString();
-
-      axios.post('http://localhost:5000/Signin', {
+try {
+  const response = await axios.post('http://localhost:5000/Signin', {
 
     
                 Username: sanitizedUsername,
@@ -85,22 +91,24 @@ const encryptedConfirmPassword = CryptoJS.SHA256(saltedConfirmPassword).toString
                 Password: encryptedPassword,
                 ConfirmPassword: encryptedConfirmPassword,
                 salt: salt.toString(),
+      });
 
+      if (response.status === 200) {
+        await sendVerificationEmail(sanitizedEmail);
+        window.alert('Signup successful. Please check your email for verification.');
+        navigate('/');
+    } else {
+      window.alert(response.data.message);
+    }
+} catch (error) {
+  if (error.response.status === 400) {
+      window.alert('Already have an accout login');
+      navigate('/');
+  } 
+}
+}
+};
 
-            }).then((response) => {
-              if(response.data.message){
-                  
-              }else{
-      
-              }
-          });}
-
-          if (validateEmail(Email) && checkPasswordStrength(Password)) {
-            sendVerificationEmail(sanitizedEmail); // send the verification email
-            window.alert("Please check your email for verification.");
-            navigate('/'); 
-            }
-        }
 
   return (
     <div className='A'>

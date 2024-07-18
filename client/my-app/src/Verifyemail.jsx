@@ -1,8 +1,8 @@
 import React from 'react';
 import './Verifyemail.css';
 
-
 const VerifyEmail = () => {
+
   return (
    <div className='X'>
     <div className="card">

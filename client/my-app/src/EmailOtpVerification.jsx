@@ -15,6 +15,7 @@ const EmailOtpForm = () => {
       });
       if (response.status === 200) {
         alert('OTP verified successfully!');
+
       } else {
         alert('Failed to verify OTP.');
       }

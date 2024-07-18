@@ -16,8 +16,8 @@ import Footer from './Footer';
 import NavbarLogin from './NavbarLogin';
 
 
-function Products() {
 
+function Products() {
     useEffect(() => {
 
         // Initialize Swiper for product slider

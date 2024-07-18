@@ -3,6 +3,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const connection = require('./DBconnection');
 
+
 router.get('/', async (req, res) => {
     const token = req.query.token;
     try {
@@ -17,8 +18,8 @@ router.get('/', async (req, res) => {
           return res.send({ error: 'Error updating user data' });
         }
         console.log('User data updated successfully:', result);
-        res.redirect('http://localhost:3000/VerifyEmail');
-
+       res.redirect('http://localhost:3000/VerifyEmail');
+       
       });
     } catch (err) {
       console.error('Error verifying email:', err);
@@ -27,5 +28,5 @@ router.get('/', async (req, res) => {
 
   });
 
-  module.exports = router;
+  module.exports = router; 
 

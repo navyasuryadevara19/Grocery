@@ -17,11 +17,12 @@ const transporter = nodemailer.createTransport({
 
 const sendVerificationEmail = async (Email) => {
     const secretKey = 'mySecretKey'; // Replace with your actual secret key
-    const token = jwt.sign({ Email }, secretKey, { expiresIn: '1h' });
+    const token = jwt.sign({ Email }, secretKey, { expiresIn: '30m' });
     const verificationUrl = `http://localhost:5000/verify?token=${token}`;
      
     // Save the token to the database
-    const sql = `INSERT INTO user (Email, Token) VALUES(?, ?)`;
+    //const sql = `INSERT INTO user (Email, Token) VALUES(?, ?)`;
+   const sql = `INSERT INTO user (Email, Token, is_verified) VALUES (?, ?, false) ON DUPLICATE KEY UPDATE Token = VALUES(Token), is_verified = VALUES(is_verified)`;
     connection.query(sql, [Email, token], (err) => {
       if (err) {
         console.error('Error saving user data:', err);

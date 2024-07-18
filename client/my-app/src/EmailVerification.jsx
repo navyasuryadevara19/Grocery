@@ -19,7 +19,7 @@ const EmailVerification = () => {
       if (response.status === 200) {
 
         alert('OTP sent successfully');
-        navigate('/EmailVerification');
+        navigate('/EmailOtpVerification');
       }
     } catch (error) {
       console.error('Error sending OTP:', error);
