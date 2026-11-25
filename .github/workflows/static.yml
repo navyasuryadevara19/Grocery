@@ -37,6 +37,9 @@ jobs:
         working-directory: client/my-app
         run: npm run build
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: Upload website files
         uses: actions/upload-pages-artifact@v4
         with:
